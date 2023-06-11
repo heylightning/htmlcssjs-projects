@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - ToDo</title>
+</head>
+<style>
+    .headerTxt {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 20px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .headerCaption {
+        font-size: 12px;
+    }
+
+    .todoTxt {
+        font-size: 15px;
+    }
+
+    .todoTxt:hover {
+        color: orange;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .middleInputSection {
+        margin-top: 30px;
+        margin-left: 25px;
+        text-align: center;
+    }
+
+    .addBtn {
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 10px;
+        border: none;
+        background-color: orange;
+        border-radius: 20px;
+        margin-top: 20px;
+        width: 200px;
+        display: inline-block;
+    }
+
+    .addBtn:hover {
+        cursor: pointer;
+        background-color: white;
+        color: orange;
+        transition: all 0.3s;
+    }
+
+    .inputField {
+        width: 500px;
+        padding: 10px;
+        border: 2px solid orange;
+        border-radius: 50px;
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        cursor: pointer;
+    }
+
+    .endSection {
+        margin-top: 15px;
+        display: inline-block;
+        padding: 30px;
+    }
+
+    .showingList {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 11px;
+    }
+</style>
+
+<body>
+    <div class="headerTxt">
+        Welcome to JavaScript - <i class="todoTxt">ToDo</i>
+        <p class="headerCaption">
+            This is the first project in the chatGPT recommended list. The Prompt says <i class="todoTxt"
+                style="font-size: 10px;">Todo List - Create a simple todo list application that allows users to add,
+                edit, and delete items.</i>
+        </p>
+    </div>
+    <div class="middleInputSection">
+        <input class="inputField" type="text" id="addTaskElementInput" placeholder="What's happening? Add a ToDo.">
+        <button id="addBTN" class="addBTN" onclick="addingTaskFunction()">Add Task</button>
+    </div>
+    <div class="endSection">
+        <p class="showingList" id="listPreview">
+        </p>
+    </div>
+    <script>
+        var myArray = [];
+        var tryingTxt = "";
+        function addingTaskFunction() {
+            tryingTxt = ""
+            var taskValue = document.getElementById("addTaskElementInput").value;
+            if(taskValue != "") {
+                myArray.push(taskValue);
+                for(var i = 0; i < myArray.length; i++) {
+                    tryingTxt = tryingTxt + "<br><br>" + myArray[i];
+                }
+
+                document.getElementById("listPreview").innerHTML = tryingTxt;
+            }
+            else {
+                window.alert("Add task field cannot be empty.")
+            }
+
+            document.getElementById("addTaskElementInput").value = null;
+        }
+    </script>
+</body>
+</html>

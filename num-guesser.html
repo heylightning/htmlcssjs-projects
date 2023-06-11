@@ -1,0 +1,203 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Number Guesser</title>
+</head>
+<style>
+    .header {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .headerTxt {
+        font-size: 13px;
+        transition: .2s;
+    }
+
+    .headerTxt:hover {
+        color: aquamarine;
+
+    }
+
+    .headerOther {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 13px;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .headerOtherTxt {
+        font-size: 11px;
+        transition: .2s;
+    }
+
+    .headerOtherTxt:hover {
+        color: aquamarine;
+    }
+
+    .middleSectionPartA {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+
+    .randomTxt {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+        opacity: .5;
+        padding: 10px;
+        display: inline;
+    }
+
+    .inputRangeField {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid aquamarine;
+        border-radius: 20px;
+        width: 15%;
+        margin: 5px;
+    }
+
+    .middleSectionPartB {
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .showResultBTN {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+        width: 15%;
+        height: 10%;
+        margin: 10px;
+        border: 2px solid white;
+        border-radius: 20px;
+        background-color: aquamarine;
+        color: white;
+        transition: 0.2s;
+    }
+
+    .showResultBTN:hover {
+        color: aquamarine;
+        border-color: black;
+        background-color: white;
+        cursor: pointer;
+
+    }
+
+    .lockBTN {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+        width: 35%;
+        height: 15%;
+        margin: 10px;
+        border: 2px solid white;
+        border-radius: 20px;
+        background-color: aquamarine;
+        color: white;
+        transition: 0.2s;
+    }
+
+    .lockBTN:hover {
+        color: aquamarine;
+        border-color: black;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .footer {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 11px;
+        opacity: .2;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <p>
+            JavaScript - <span class="headerTxt">Number Guesser</span>
+        </p>
+    </div>
+
+    <div class="headerOther">
+        <p>
+            This is another chatGPT recommended project for getting skilled at JavaScript it says - <span
+                class="headerOtherTxt">
+                Number Guessing Game - Create a game where the user has to guess a randomly generated number within a
+                certain range.
+            </span>
+        </p>
+    </div>
+
+    <div class="middleSectionPartA">
+        <p class="randomTxt">Select a range: </p>
+        <input type="number" class="inputRangeField" id="inputRangeFieldMin">
+        <p class="randomTxt">to</p>
+        <input type="number" class="inputRangeField" id="inputRangeFieldMax">
+        <button class="lockBTN" id="buttonLock">Lock Range & Generate Random Number</button>
+    </div>
+
+    <div class="middleSectionPartB">
+        <p class="randomTxt">Guess a Number: </p>
+        <input type="number" class="inputRangeField" id="inputGuessedNumber">
+        <button class="showResultBTN" id="buttonResult">Check</button>
+    </div>
+    <div class="footer">
+        <p class="resultTxt" id="paraResult"></p>
+    </div>
+    <script>
+        var randomNumber;
+        var listener = 0;
+        var minNum = 0;
+        var maxNum = 0;
+
+        document.getElementById("buttonLock").addEventListener("click", function () {
+            minNum = document.getElementById("inputRangeFieldMin").value;
+            maxNum = document.getElementById("inputRangeFieldMax").value;
+
+            if (Number(minNum) >= Number(maxNum) || Number(minNum) == 0 || Number(maxNum) == 0) {
+                window.alert("Invalid Range!");
+                minNum = 0;
+                maxNum = 0;
+            }
+            else {
+                var tempStore = Math.random() * (Number(maxNum - Number(minNum)) + Number(minNum));
+
+                randomNumber = Math.trunc(tempStore);
+                document.getElementById("paraResult").innerHTML = "New Random Number Generated.";
+                console.log("randomNumber: " + randomNumber);
+            }
+        });
+
+        document.getElementById("buttonResult").addEventListener("click", function () {
+            var guessedNumber = document.getElementById("inputGuessedNumber").value;
+
+            if (Number(guessedNumber) == 0 || Number(minNum) == 0 || Number(maxNum) == 0 || Number(minNum) >= Number(maxNum)) {
+                window.alert("Invalid Input!");
+            }
+            else if (Number(guessedNumber) == Number(randomNumber)) {
+                document.getElementById("paraResult").innerHTML = "You won.";
+            }
+            else {
+                listener = listener + 1;
+                if (listener <= 5) {
+                    document.getElementById("paraResult").innerHTML = "try again you have " + String(5 - listener) + " chance left...";
+                }
+                if (listener == 5) {
+                    document.getElementById("paraResult").innerHTML = "You Lose.";
+                    document.getElementById("inputRangeFieldMin").innerHTML = 0;
+                    document.getElementById("inputRangeFieldMax").innerHTML = 0;
+                    document.getElementById("inputGuessedNumber").ariaPlaceholder = 0;
+                    listener = 0;
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>

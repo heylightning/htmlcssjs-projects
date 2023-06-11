@@ -1,0 +1,300 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Form Validator</title>
+</head>
+<style>
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 10px;
+    }
+
+    .header {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .headerStyle {
+        font-size: 15px;
+        color: gold;
+        transition: .2s;
+    }
+
+    .headerStyle:hover {
+        color: black;
+    }
+
+    .headerTxt {
+        font-size: 13px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .headerTxtStyle {
+        font-size: 11px;
+        color: gold;
+        transition: .2s;
+    }
+
+    .headerTxtStyle:hover {
+        color: black;
+    }
+
+    .middleSection {
+        margin-top: 50px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .randomTxt {
+        font-size: 12px;
+        opacity: .5;
+        display: inline;
+        margin-right: 10px;
+    }
+
+    .inputDataFieldName {
+        width: 25%;
+        height: 5%;
+        border-radius: 20px;
+        border: 1px solid black;
+        padding-left: 10px;
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+
+    .inputDataFieldNumber {
+        width: 20%;
+        height: 5%;
+        border-radius: 20px;
+        border: 1px solid black;
+        padding-left: 10px;
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+
+    .inputDataFieldGender {
+        width: 10%;
+        height: 5%;
+        border-radius: 20px;
+        border: 1px solid black;
+        padding-left: 10px;
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+
+    .footer {
+        margin-left: 20%;
+        margin-top: 10px;
+    }
+
+    .inputDataFieldCheck {
+        margin: 5px;
+    }
+
+    .tandc {
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .end {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .submitBTN {
+        width: 15%;
+        height: 5%;
+        background-color: gold;
+        border-radius: 20px;
+        border: 2px solid black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .submitBTN:hover {
+        background-color: white;
+        border-color: gold;
+    }
+
+    .popupGender {
+        background-color: black;
+        position: fixed;
+        top: 35%;
+        left: 30%;
+        width: 40%;
+        height: 10%;
+        border-radius: 20px;
+        z-index: 1;
+        display: none;
+    }
+
+    .colorStyle {
+        margin-right: 10px;
+    }
+
+    .innerPopup {
+        margin: 18px;
+        text-align: center;
+    }
+
+    .chooseBTN {
+        width: 30%;
+        height: 50%;
+        background-color: gold;
+        border-radius: 20px;
+        border: 2px solid black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .chooseBTN:hover {
+        border-color: gold;
+        background-color: white;
+    }
+
+    .endPhrase {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+
+    <div class="popupGender" id="popupGenderID">
+        <div class="innerPopup">
+            <button class="chooseBTN" id="buttonMale">Male</button>
+            <button class="chooseBTN" id="buttonFemale">Female</button>
+            <button class="chooseBTN" id="buttonOther">Other</button>
+        </div>
+    </div>
+
+    <div class="header">
+        <p>
+            JavaScript - <span class="headerStyle">
+                Form Validator
+            </span>
+        </p>
+    </div>
+
+    <div class="headerTxt">
+        <p>
+            This is another project the chatGPT curated series that says - <span class="headerTxtStyle">
+                Form Validator - Create a form validator that uses JavaScript to validate user inputs.
+            </span>
+        </p>
+    </div>
+
+    <div class="middleSection">
+        <p class="randomTxt">
+            First Name:
+        </p>
+        <input class="inputDataFieldName" type="text" id="inputFN">
+        <p class="randomTxt">
+            Last Name:
+        </p>
+        <input type="text" class="inputDataFieldName" id="inputLN">
+        <br><br>
+        <p class="randomTxt">
+            Email Address:
+        </p>
+        <input class="inputDataFieldName" type="email" id="inputEmail">
+        <p class="randomTxt">
+            Mobile Number: +91
+        </p>
+        <input type="number" class="inputDataFieldNumber" id="inputNumber">
+        <br><br>
+        <p class="randomTxt">
+            Gender:
+        </p>
+        <p class="randomTxt"
+            style="border: 2px solid black; padding: 5px; border-radius: 20px; padding-left: 7.5px; padding-right: 7.5px; cursor: pointer;"
+            id="inputGender">
+            Select
+        </p>
+        <p class="randomTxt">
+            Favorite Color:
+        </p>
+        <input type="color" class="colorStyle" id="inputColor">
+        <p class="randomTxt">
+            DOB:
+        </p>
+        <input type="date" class="inputDataFieldNumber" id="inputDate">
+    </div>
+
+    <div class="footer">
+        <input type="checkbox" class="inputDataFieldCheck" id="checkboxChecked" name="accept">
+        <p class="randomTxt">
+            You agree to our <span class="tandc">
+                Terms and Conditions
+            </span>
+        </p>
+    </div>
+
+    <div class="end">
+        <button class="submitBTN" id="buttonSubmit">
+            Submit
+        </button>
+    </div>
+
+    <div class="endPhrase" id="endPhraseID">
+        <p class="randomTxt">
+
+        </p>
+    </div>
+    <script>
+        let firstName;
+        let lastName;
+        let emailAddress;
+        let mobileNumber;
+        let gender;
+        let favColor;
+        let DOB;
+        let checkBox;
+
+        document.getElementById("inputGender").addEventListener("click", function () {
+            document.getElementById("popupGenderID").style.display = "inherit";
+        });
+
+        document.getElementById("buttonMale").addEventListener("click", function () {
+            document.getElementById("popupGenderID").style.display = "none";
+            document.getElementById("inputGender").innerHTML = "Male";
+        });
+
+        document.getElementById("buttonFemale").addEventListener("click", function () {
+            document.getElementById("popupGenderID").style.display = "none";
+            document.getElementById("inputGender").innerHTML = "Female";
+        });
+
+        document.getElementById("buttonOther").addEventListener("click", function () {
+            document.getElementById("popupGenderID").style.display = "none";
+            document.getElementById("inputGender").innerHTML = "Other";
+        });
+
+        document.getElementById("buttonSubmit").addEventListener("click", function () {
+            var ed = true;
+            firstName = document.getElementById("inputFN").value;
+            lastName = document.getElementById("inputLN").value;
+            emailAddress = document.getElementById("inputEmail").value;
+            mobileNumber = document.getElementById("inputNumber").value;
+            gender = document.getElementById("inputGender").innerHTML;
+            DOB = document.getElementById("inputDate").value;
+
+            if (firstName == "" || lastName == "" || emailAddress == "" || mobileNumber < 1000000000 || mobileNumber > 9999999999 || mobileNumber == "" || gender == "Select" || DOB == "" || document.getElementById("checkboxChecked").checked == false) {
+                document.getElementById("endPhraseID").innerHTML = "Invalid Inputs."
+            }
+
+            else {
+                document.getElementById("endPhraseID").innerHTML = "Valid Inputs, user registered."
+            }
+        });
+
+    </script>
+</body>
+
+</html>

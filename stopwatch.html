@@ -1,0 +1,179 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Stopwatch</title>
+</head>
+<style>
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 10px;
+    }
+
+    .header {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .headerStyle {
+        font-size: 15px;
+        color: cadetblue;
+        transition: .2s;
+    }
+
+    .headerStyle:hover {
+        color: black;
+    }
+
+    .headerTxt {
+        font-size: 13px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .headerTxtStyle {
+        font-size: 11px;
+        color: cadetblue;
+        transition: .2s;
+    }
+
+    .headerTxtStyle:hover {
+        color: black;
+    }
+
+    .middleSection {
+        margin: 20px;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .txtStyle {
+        font-size: 11px;
+        opacity: .5;
+        margin: 5px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+
+    .btnStyle {
+        width: 15%;
+        height: 7%;
+        margin-right: 10px;
+        background-color: cadetblue;
+        border: 1px solid black;
+        color: white;
+        border-radius: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .btnStyle:hover {
+        color: cadetblue;
+        background-color: black;
+        border-color: cadetblue;
+    }
+
+    .footer {
+        text-align: center;
+        opacity: .5;
+        font-size: 10px;
+    }
+</style>
+
+<body>
+
+    <div class="header">
+        <p>
+            JavaScript - <span class="headerStyle">
+                Stopwatch
+            </span>
+        </p>
+    </div>
+
+    <div class="headerTxt">
+        <p>
+            This is another project created by the chatGPT series that says - <span class="headerTxtStyle">
+                Stopwatch - Create a stopwatch application that can start, stop, and reset the timer.
+            </span>
+        </p>
+    </div>
+
+    <div class="middleSection">
+        <p class="txtStyle" id="mainTxt">
+            0 hr 0 min 0 sec 0 millisec
+        </p>
+        <button class="btnStyle" id="buttonStartClock">
+            Start
+        </button>
+        <button class="btnStyle" id="buttonStopClock">
+            Stop
+        </button>
+        <button class="btnStyle" id="buttonResetClock">
+            Reset
+        </button>
+    </div>
+
+    <div class="footer" id="footerAlert">
+
+    </div>
+
+    <script>
+        var milliIteration = 0;
+        var iteration = 0;
+        var stopClock = false;
+        var myVar;
+        var inRunning = false;
+        var minIteration = 0;
+        var hrIteration = 0;
+
+        function tryClock() {
+            if (iteration == 59) {
+                minIteration = minIteration + 1;
+                document.getElementById("mainTxt").innerHTML = "0 hr " + minIteration + " min " + iteration + " sec";
+                iteration = 0;
+            }
+            if (minIteration == 60) {
+                hrIteration = hrIteration + 1;
+                document.getElementById("mainTxt").innerHTML = hrIteration + " hr " + minIteration + " min " + iteration + " sec";
+                minIteration = 0;
+            }
+
+            if(milliIteration == 100) {
+                iteration = iteration + 1;
+                document.getElementById("mainTxt").innerHTML = hrIteration + " hr " + minIteration + " min " + iteration + " sec " + milliIteration + " millisec";
+                milliIteration = 0;
+            }
+            inRunning = true;
+            milliIteration = milliIteration + 1;
+            myVar = setTimeout(tryClock, 7.6);
+            document.getElementById("mainTxt").innerHTML = hrIteration + " hr " + minIteration + " min " + iteration + " sec " + milliIteration + " millisec";
+        }
+
+
+        document.getElementById("buttonStartClock").addEventListener("click", function () {
+            if (inRunning == false) {
+                document.getElementById("footerAlert").innerHTML = "Clock is started."
+                tryClock();
+            }
+        });
+
+        document.getElementById("buttonStopClock").addEventListener("click", function () {
+            clearTimeout(myVar);
+            inRunning = false;
+            document.getElementById("footerAlert").innerHTML = "Clock is stopped."
+        });
+
+        document.getElementById("buttonResetClock").addEventListener("click", function () {
+            clearTimeout(myVar);
+            inRunning = false;
+            document.getElementById("mainTxt").innerHTML = "0 hr 0 min 0 sec 0 millisec";
+            document.getElementById("footerAlert").innerHTML = "Clock is reset."
+            milliIteration =  iteration = minIteration = hrIteration = 0;
+        }); 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.clickBtn, .textUser{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    background-color: white;
+    color: yellow;
+    width: 10%;
+    height: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: .2s;
+}
+
+.textUser{
+    color: black;
+    font-size: 12px;
+}
+
+.clickBtn:hover{
+    border-radius: 20px;
+    background-color: yellow;
+    color: black;
+    cursor: pointer;
+}
+
+p{
+    color: yellow;
+}
+
+
+span{
+font-size: 11px;
+color: black;
+}

@@ -1,0 +1,265 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Calculator</title>
+</head>
+<style>
+    .header {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .headerStyle {
+        font-size: 15px;
+    }
+
+    .headerStyle:hover {
+        color: purple;
+        transition: color 0.2s;
+        cursor: pointer;
+    }
+
+    .headerTxt {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .headerTxtStyle {
+        font-size: 12px;
+    }
+
+    .headerTxtStyle:hover {
+        color: purple;
+        transition: color 0.2s;
+    }
+
+    .middleSection {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .inputStyle {
+        font-size: 13px;
+        opacity: 0.5;
+        display: inline-block;
+    }
+
+    .reset {
+        width: 15%;
+        padding: 10px;
+        margin: 20px;
+        margin-left: 20%;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+        background-color: purple;
+        color: white;
+        border: 2px solid white;
+        border-radius: 20px;
+    }
+
+    .reset:hover {
+        cursor: pointer;
+        border-color: purple;
+        background-color: white;
+        color: black;
+        transition: all 0.2s;
+    }
+
+    .calButtonStyle {
+        width: 12%;
+        height: 40px;
+        margin: 2px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: white;
+        border: 1.5px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .calButtonStyle:hover {
+        background-color: purple;
+        color: white;
+        transition: all 0.2s;
+    }
+
+    .note {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: italic;
+        font-size: 10px;
+        margin: 20px;
+    }
+</style>
+
+<body>
+    <div class="header">
+        JavaScript - <span class="headerStyle">Calculator</span>
+    </div>
+    <div class="headerTxt">
+        <!-- This is another practice project recommended by
+        chatGPT that says - --> <span class="headerTxtStyle"> 
+            Calculator - Create a basic calculator that can perform addition, subtraction, multiplication, and division.
+        </span>
+    </div>
+    <div class="middleSection">
+        <p class="inputStyle" id="inputID">Calculate</p>
+        <button class="reset" id="resetID">Reset Log</button>
+        <br>
+        <button id="button7" class="calButtonStyle">7</button>
+        <button id="button8" class="calButtonStyle">8</button>
+        <button id="button9" class="calButtonStyle">9</button>
+        <button id="buttonDivision" class="calButtonStyle">/</button>
+        <br><button id="button4" class="calButtonStyle">4</button>
+        <button id="button5" class="calButtonStyle">5</button>
+        <button id="button6" class="calButtonStyle">6</button>
+        <button id="buttonMultiply" class="calButtonStyle">x</button>
+        <br><button id="button1" class="calButtonStyle">1</button>
+        <button id="button2" class="calButtonStyle">2</button>
+        <button id="button3" class="calButtonStyle">3</button>
+        <button id="buttonSubstract" class="calButtonStyle">-</button>
+        <br><button id="buttonModulus" class="calButtonStyle">%</button>
+        <button id="button0" class="calButtonStyle">0</button>
+        <button id="buttonAdd" class="calButtonStyle">+</button>
+        <button id="buttonEqual" class="calButtonStyle">=</button>
+    </div>
+    <p class="note">
+        Note: For now this calculator is validated to use and work with only 1 operator at a time.
+    </p>
+    <script>
+        var text = '';
+        var opUsed = false;
+        document.getElementById("resetID").addEventListener("click", function () {
+            text = '';
+            document.getElementById("inputID").innerHTML = null;
+        });
+        document.getElementById("buttonDivision").addEventListener("click", function () {
+            if (text != '' && opUsed == false) {
+                opUsed = true;
+                text = text + "/";
+                document.getElementById("inputID").innerHTML = text;
+            }
+        });
+        document.getElementById("buttonMultiply").addEventListener("click", function () {
+            if (text != '' && opUsed == false) {
+                opUsed = true;
+                text = text + "*";
+                document.getElementById("inputID").innerHTML = text;
+            }
+        });
+        document.getElementById("buttonAdd").addEventListener("click", function () {
+            if (text != '' && opUsed == false) {
+                opUsed = true;
+                text = text + "+";
+                document.getElementById("inputID").innerHTML = text;
+            }
+        });
+        document.getElementById("buttonSubstract").addEventListener("click", function () {
+            if (text != '' && opUsed == false) {
+                opUsed = true;
+                text = text + "-";
+                document.getElementById("inputID").innerHTML = text;
+            }
+        });
+        document.getElementById("buttonModulus").addEventListener("click", function () {
+            if (text != '' && opUsed == false) {
+                opUsed = true;
+                text = text + "%";
+                document.getElementById("inputID").innerHTML = text;
+            }
+        });
+        document.getElementById("button7").addEventListener("click", function () {
+            text = text + "7";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button8").addEventListener("click", function () {
+            text = text + "8";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button9").addEventListener("click", function () {
+            text = text + "9";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button4").addEventListener("click", function () {
+            text = text + "4";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button5").addEventListener("click", function () {
+            text = text + "5";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button6").addEventListener("click", function () {
+            text = text + "6";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button1").addEventListener("click", function () {
+            text = text + "1";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button2").addEventListener("click", function () {
+            text = text + "2";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button3").addEventListener("click", function () {
+            text = text + "3";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("button0").addEventListener("click", function () {
+            text = text + "0";
+            document.getElementById("inputID").innerHTML = text;
+        });
+        document.getElementById("buttonEqual").addEventListener("click", function () {
+            if (text[(text.length) - 1] == "+" || text[(text.length) - 1] == "-" || text[(text.length) - 1] == "*" || text[(text.length) - 1] == "/" || text[(text.length) - 1] == "%") {
+                window.alert("Invalid Input.");
+            }
+            else {
+                opUsed = false;
+                var result;
+                result = document.getElementById("inputID").innerHTML;
+
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i] == "+") {
+                        var num1 = result.slice(0, i);
+                        var num2 = result.slice(i + 1);
+                        document.getElementById("inputID").innerHTML = Number(num1) + Number(num2);
+                        text = Number(num1) + Number(num2);
+                    }
+                    else if (result[i] == "-") {
+                        var num1 = result.slice(0, i);
+                        var num2 = result.slice(i + 1);
+                        document.getElementById("inputID").innerHTML = Number(num1) - Number(num2);
+                        text = Number(num1) - Number(num2);
+                    }
+                    else if (result[i] == "*") {
+                        var num1 = result.slice(0, i);
+                        var num2 = result.slice(i + 1);
+                        document.getElementById("inputID").innerHTML = Number(num1) * Number(num2);
+                        text = Number(num1) * Number(num2);
+                    }
+                    else if (result[i] == "/") {
+                        var num1 = result.slice(0, i);
+                        var num2 = result.slice(i + 1);
+                        document.getElementById("inputID").innerHTML = Number(num1) / Number(num2);
+                        text = Number(num1) / Number(num2);
+                    }
+                    else if (result[i] == "%") {
+                        var num1 = result.slice(0, i);
+                        var num2 = result.slice(i + 1);
+                        document.getElementById("inputID").innerHTML = Number(num1) % Number(num2);
+                        text = Number(num1) % Number(num2);
+                    }
+
+
+                }
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
