@@ -13,4 +13,4 @@ These are the list of projects:
 * Weather App - Created a weather app that displays the current weather based on the user's location or a city they search for.
 * Currency converter - Created a currency converter that converts the value of one currency to another using an API.
 
-*Note: This is one of my oldest repository on GitHub and I no longer manage it consistently."*
+*Note: This is one of my oldest repository on GitHub and I no longer manage it consistently.*
