@@ -15,4 +15,4 @@ Folllowing are the list of the projects:
 
 *Note: This is one of my oldest repository on GitHub and I no longer manage it consistently.*
 
-### LICENSE - [MIT](LICENSE)
+LICENSE - [MIT](LICENSE)
