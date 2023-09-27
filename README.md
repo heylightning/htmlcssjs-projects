@@ -1,6 +1,6 @@
 # Description 📄
 
-These are the list of projects:
+Folllowing are the list of the projects:
 
 * Todo List - Created a simple todo list application that allows users to add, edit, and delete items. 
 * Calculator - Created a basic calculator that can perform addition, subtraction, multiplication, and division.
